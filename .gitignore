@@ -1,0 +1,7 @@
+/src/vendor
+/bin/jsonlint
+/bin/validate-json
+/bin/phpunit
+/node_modules
+npm-debug.log
+.DS_Store
