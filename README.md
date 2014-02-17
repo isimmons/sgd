@@ -35,6 +35,7 @@ Feel free to tinker around, test, and even contribute if you wish.
 * More safety checks (don't want to hose anyones files)
 * More commands (fetch, pull, merge in the works)
 * Work on making commands easier and more intuitive
+* Fix some incorrect docblocks
 
 ## Why use it?
 You could initialize a git repository inside the sculpin build directory but there is a risk of it being overwritten and you would still have to cd back and forth between the sculpin root and the build directory when switching between editing or building your site and running git commands to push changes.
@@ -65,3 +66,15 @@ See documentation at [docs/main.md](https://github.com/isimmons/sgd/tree/master/
 I have created some directories and files and a initialized but empty git repository inside tests/resources to test the GitRunner and SculpinCopier classes.
 
 I'm not sure yet of the potential dangers of this but it makes me uneasy having tests create and delete files and directories. If you view the tests (GitRunnerTest.php and SculpinCopierTest.php) notice the tearDown methods. In each test there is a tearDown that calls $this->cleanResourcesDir(); This is the part that concerns me. For this reason, even though I have run the tests extensively on my own system, I have marked them to be skipped in the setUp methods. This way individual developers can decide if they want to enable these tests.
+
+## Credits
+Author: Ian Simmons
+Email: [isimmons33@gmail.com](mailto:isimmons33@gmail.com)
+Twitter: [@isimmons](https://twitter.com/isimmons33)
+Website: [isimmons.github.io](http://isimmons.github.io)
+
+Helpful projects I learned from in making sgd:
+###### Symfony commands and phar files
+[Laravel/Envoy](https://github.com/laravel/envoy)
+###### Running git commands from PHP
+[Git.php](https://github.com/kbjr/Git.php)
