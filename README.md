@@ -69,11 +69,14 @@ I'm not sure yet of the potential dangers of this but it makes me uneasy having 
 
 ## Credits
 Author: Ian Simmons
+
 Email: [isimmons33@gmail.com](mailto:isimmons33@gmail.com)
+
 Twitter: [@isimmons](https://twitter.com/isimmons33)
+
 Website: [isimmons.github.io](http://isimmons.github.io)
 
-Helpful projects I learned from in making sgd:
+#####Helpful projects I learned from in making sgd:
 ###### Symfony commands and phar files
 [Laravel/Envoy](https://github.com/laravel/envoy)
 ###### Running git commands from PHP
