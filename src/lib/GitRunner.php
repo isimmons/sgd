@@ -93,8 +93,9 @@ class GitRunner {
             if($stderr != '') throw new GitCommandException($stderr);
         }
 
+        if(! empty($stdout)) return $stdout;
 
-        return $stdout;
+        return true;
     }
 
     protected function prepareEnv()
