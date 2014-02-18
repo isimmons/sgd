@@ -108,7 +108,8 @@ class Git {
         $git = $this->runner;
 
         $result = $git->run($repo, $command);
-        if($result == "") return true;
+
+        if($result) return true;
 
         return false;
     }
