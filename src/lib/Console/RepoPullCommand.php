@@ -38,7 +38,7 @@ class RepoPullCommand extends BaseCommand {
     protected function configure()
     {
         $this->setName('repo:pull')
-            ->setDescription('Push files to existing github branch.')
+            ->setDescription('Pull from remote.')
             ->addArgument('repo', InputArgument::REQUIRED, 'Path to target local repository (Required)')
             ->addArgument('remote', InputArgument::REQUIRED, 'Remote repository');
     }

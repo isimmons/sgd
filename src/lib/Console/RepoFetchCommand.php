@@ -38,7 +38,7 @@ class RepoFetchCommand extends BaseCommand {
     protected function configure()
     {
         $this->setName('repo:fetch')
-            ->setDescription('Fetch a remote repostitory.')
+            ->setDescription('Fetch from remote.')
             ->addArgument('repo', InputArgument::REQUIRED, 'Path to target local repository (Required)')
             ->addArgument('remote', InputArgument::REQUIRED, 'Remote repository');
     }

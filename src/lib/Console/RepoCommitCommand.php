@@ -37,7 +37,7 @@ class RepoCommitCommand extends BaseCommand {
     protected function configure()
     {
         $this->setName('repo:commit')
-            ->setDescription('commit staged files.')
+            ->setDescription('Commit staged files.')
             ->addArgument('repo', InputArgument::REQUIRED, 'Path to target repository (Required)')
             ->addArgument('message', InputArgument::OPTIONAL, 'Commit message', 'New Post');
     }
