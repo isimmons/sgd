@@ -5,7 +5,7 @@ require __DIR__.'/../src/vendor/autoload.php';
 require __DIR__.'/../src/lib/helpers.php';
 require __DIR__.'/../src/lib/helpers.php';
 
-$app = new Symfony\Component\Console\Application('sgd', '0.0.1');
+$app = new Symfony\Component\Console\Application('sgd', '0.0.2');
 
 //for dependency injection
 $git = new Isimmons\Sgd\Git(new Isimmons\Sgd\GitRunner);
@@ -18,9 +18,9 @@ $app->add(new Isimmons\Sgd\Console\RepoValidateCommand($git));
 $app->add(new Isimmons\Sgd\Console\RepoMakeCommand($git));
 $app->add(new Isimmons\Sgd\Console\RepoStatusCommand($git));
 $app->add(new Isimmons\Sgd\Console\RepoRemoteCommand($git));
-$app->add(new Isimmons\Sgd\Console\RepoFetchCommand($git));
+//$app->add(new Isimmons\Sgd\Console\RepoFetchCommand($git));
 $app->add(new Isimmons\Sgd\Console\RepoPullCommand($git));
-$app->add(new Isimmons\Sgd\Console\RepoMergeCommand($git));
+//$app->add(new Isimmons\Sgd\Console\RepoMergeCommand($git));
 $app->add(new Isimmons\Sgd\Console\SculpinCopyCommand($copier));
 
 $updateCommand = new KevinGH\Amend\Command('self-update');

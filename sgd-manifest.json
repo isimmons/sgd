@@ -4,5 +4,11 @@
         "sha1": "21cc81044565688ffba1b5c32f23a93ed0c78f35",
         "url": "https://github.com/isimmons/sgd/raw/master/sgd.phar",
         "version": "0.0.1"
+    },
+    {
+        "name": "sgd.phar",
+        "sha1": "6bed5e81bd94a17fc34324dbe6e85ab091cd6fcf",
+        "url": "https://github.com/isimmons/sgd/raw/master/sgd.phar",
+        "version": "0.0.2"
     }
 ]

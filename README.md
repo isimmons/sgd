@@ -8,7 +8,7 @@ I urge you to make a test repo, test remote repo, and test sculpin blog to try t
 
 Even then I would strongly advise keeping a backup copy and be familiar with rolling back git commits.
 
-There is an issue when a remote repository already exists. You will need to manually merge upstream changes before first time use of sculpin:copy or any other sgd git commands, otherwise you will get an error like this
+There is an issue when a remote repository already exists. You will need to merge the local and remote branch. If this is an issue you will see something like the following error when you attempt to push changes.
 ```
  ! [rejected]        master -> master (non-fast-forward)
 error: failed to push some refs to 'git@github.com:isimmons/foo.git'
@@ -17,13 +17,10 @@ hint: its remote counterpart. Merge the remote changes (e.g. 'git pull')
 hint: before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
-To avoid this manually run 
+This is easily fixed by running 
 ```
-git pull origin master
+sgd repo:pull origin master
 ```
-And then check the status to make sure everything is ok before continuing to use sgd.
-
-I will be adding basic fetch pull and merge commands very soon.
 
 Feel free to tinker around, test, and even contribute if you wish.
 
@@ -31,7 +28,7 @@ Feel free to tinker around, test, and even contribute if you wish.
 * More testing
 * More error handling
 * More safety checks (don't want to hose anyones files)
-* More commands (fetch, pull, merge in the works)
+* More commands (fetch, merge in the works)
 * Work on making commands easier and more intuitive
 * Fix some incorrect docblocks
 * Plan to implement some type of config file to avoid repo as a required argument to every command
