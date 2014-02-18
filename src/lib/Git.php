@@ -125,13 +125,15 @@ class Git {
         return false;
     }
 
-    public function pull($repo, $remote)
+    public function pull($repo, $remote, $branch)
     {
-        $command = "pull {$remote}";
+        $command = "pull {$remote} {$branch}";
 
         $git = $this->runner;
 
-        if($result = $git->run($repo, $command)) return true;
+        $result = $git->run($repo, $command);
+        
+        if($result === true) return true;
 
         return false;
     }
