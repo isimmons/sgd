@@ -156,4 +156,46 @@ class GitTest extends TestCase {
         $this->assertFalse($result);
     }
 
+    public function testItFetchesFromRemote()
+    {
+        $this->mock->shouldReceive('run')
+            ->once()
+            ->with('repo', 'fetch origin')
+            ->andReturn(true);
+
+        $git = new Git($this->mock);
+
+        $result = $git->fetch('repo', 'origin');
+
+        $this->assertTrue($result);
+    }
+
+    public function testItPullsFromRemote()
+    {
+        $this->mock->shouldReceive('run')
+            ->once()
+            ->with('repo', 'pull origin')
+            ->andReturn(true);
+
+        $git = new Git($this->mock);
+
+        $result = $git->pull('repo', 'origin');
+
+        $this->assertTrue($result);
+    }
+
+     public function testItMergesFromRemote()
+    {
+        $this->mock->shouldReceive('run')
+            ->once()
+            ->with('repo', 'merge origin --commit')
+            ->andReturn(true);
+
+        $git = new Git($this->mock);
+
+        $result = $git->merge('repo', 'origin');
+
+        $this->assertTrue($result);
+    }
+
 }
