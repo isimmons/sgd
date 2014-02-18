@@ -1,7 +1,7 @@
 # sgd Sculpin Github Deploy
 ### Description
 sgd is a phar package to automate sculpin and git tasks all without leaving the root sculpin directory.
-## ALPHA release version 0.0.1
+## ALPHA release version 0.0.2
 This package is in early ALPHA release stage.
 
 I urge you to make a test repo, test remote repo, and test sculpin blog to try this out with until you feel comfortable that it works well and is not going to corrupt or destroy your real sculpin blog.
