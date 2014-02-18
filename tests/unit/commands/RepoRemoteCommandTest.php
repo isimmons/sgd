@@ -46,21 +46,6 @@ class RepoRemoteCommandTest extends TestCase {
         $this->assertEquals('origin git@github.com:isimmons/foo.git removed from repo', $tester->getDisplay());
     }
 
-    public function testRemoteUsesOptionalArguments()
-    {
-        $this->mock->shouldReceive('remote')
-            ->once()
-            ->with('repo', 'add', 'origin', 'git@github.com:isimmons/foo.git')
-            ->andReturn(true);
-
-        $command = new RepoRemoteCommand($this->mock);
-
-        $tester = new CommandTester($command);
-        $tester->execute(['repo' => 'repo', 'action' => 'add', 'url' => 'git@github.com:isimmons/foo.git']);
-        
-        $this->assertEquals('origin git@github.com:isimmons/foo.git added to repo', $tester->getDisplay());
-    }
-
     public function testItFailsToAddRemoteToRepo()
     {
         $this->mock->shouldReceive('remote')

@@ -40,8 +40,9 @@ class RepoRemoteCommand extends BaseCommand {
             ->setDescription('Add a remote to the repo.')
             ->addArgument('repo', InputArgument::REQUIRED, 'Path to target local repository (Required)')
             ->addArgument('action', InputArgument::REQUIRED, "'add' or 'remove (Required)'")
-            ->addArgument('url', InputArgument::REQUIRED, 'Url to the remote repository (Required)')
-            ->addArgument('remote', InputArgument::OPTIONAL, 'Remote repository name', 'origin');
+            ->addArgument('remote', InputArgument::REQUIRED, 'Remote repository name')
+            ->addArgument('url', InputArgument::REQUIRED, 'Url to the remote repository (Required)');
+            
             
     }
 
@@ -57,7 +58,9 @@ class RepoRemoteCommand extends BaseCommand {
         $url = $this->getUrl();
         $action = $this->getAction();
 
-        if($this->git->remote($repo, $action, $remote, $url))
+        $result = $this->git->remote($repo, $action, $remote, $url);
+
+        if($result)
         {
             if($action == 'add')
             {
