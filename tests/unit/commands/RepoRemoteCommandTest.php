@@ -56,7 +56,7 @@ class RepoRemoteCommandTest extends TestCase {
         $command = new RepoRemoteCommand($this->mock);
 
         $tester = new CommandTester($command);
-        $tester->execute(['repo' => 'repo', 'url' => 'git@github.com:isimmons/foo.git']);
+        $tester->execute(['repo' => 'repo', 'action' => 'add', 'url' => 'git@github.com:isimmons/foo.git']);
         
         $this->assertEquals('origin git@github.com:isimmons/foo.git added to repo', $tester->getDisplay());
     }
@@ -71,7 +71,7 @@ class RepoRemoteCommandTest extends TestCase {
         $command = new RepoRemoteCommand($this->mock);
 
         $tester = new CommandTester($command);
-        $tester->execute(['repo' => 'repo', 'remote' => 'origin', 'url' => 'git@github.com:isimmons/foo.git']);
+        $tester->execute(['repo' => 'repo', 'action' => 'add', 'remote' => 'origin', 'url' => 'git@github.com:isimmons/foo.git']);
         
         $this->assertEquals(
             "Fail: Unable to add/remove remote 'origin' @url 'git@github.com:isimmons/foo.git' to repo 'repo'",
