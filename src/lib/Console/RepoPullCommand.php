@@ -37,7 +37,7 @@ class RepoPullCommand extends BaseCommand {
     */
     protected function configure()
     {
-        $this->setName('repo:push')
+        $this->setName('repo:pull')
             ->setDescription('Push files to existing github branch.')
             ->addArgument('repo', InputArgument::REQUIRED, 'Path to target local repository (Required)')
             ->addArgument('remote', InputArgument::REQUIRED, 'Remote repository');
@@ -53,7 +53,7 @@ class RepoPullCommand extends BaseCommand {
         $repo = $this->getRepo();
         $remote = $this->getRemote();
 
-        if($this->git->pull())
+        if($this->git->pull($repo, $remote))
             $this->displayOutput("pull {$repo} <<-- {$remote} Success.");
     }
 

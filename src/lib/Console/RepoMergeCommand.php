@@ -40,7 +40,7 @@ class RepoMergeCommand extends BaseCommand {
         $this->setName('repo:push')
             ->setDescription('Push files to existing github branch.')
             ->addArgument('repo', InputArgument::REQUIRED, 'Path to target local repository (Required)')
-            ->addArgument('remote', InputArgument::REQUIRED, 'Remote repository', 'origin')
+            ->addArgument('remote', InputArgument::REQUIRED, 'Remote repository')
             ->addArgument('commit', InputArgument::OPTIONAL, 'Commit merge automatically?', 'false');
     }
 
@@ -97,6 +97,6 @@ class RepoMergeCommand extends BaseCommand {
     */
     protected function getCommit()
     {
-        return ($this->option('commit') == 'true') ? true : false;
+        return ($this->argument('commit') == 'true') ? true : false;
     }
 }

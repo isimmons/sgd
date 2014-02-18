@@ -7,7 +7,7 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class RepoPushCommand extends BaseCommand {
+class RepoFetchCommand extends BaseCommand {
 
     /**
     * Injected instance of Git class
@@ -53,7 +53,7 @@ class RepoPushCommand extends BaseCommand {
         $repo = $this->getRepo();
         $remote = $this->getRemote();
 
-        if($this->git->fetch($repo, $remote)
+        if($this->git->fetch($repo, $remote))
             $this->displayOutput("{$repo} <<-- {$remote} Success.");
     }
 

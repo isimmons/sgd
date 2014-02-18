@@ -8,7 +8,7 @@ class RepoMergeCommandTest extends TestCase {
 
     public function setUp()
     {
-        $this->markTestSkipped('Test skipped. Not implimented yet');
+        //$this->markTestSkipped('Test skipped. Not implimented yet');
         $this->mock = Mockery::mock('Isimmons\Sgd\Git');
     }
 
@@ -36,7 +36,7 @@ class RepoMergeCommandTest extends TestCase {
     {
         $this->mock->shouldReceive('merge')
             ->once()
-            ->with('repo', 'origin', true)
+            ->with('repo', 'origin', false)
             ->andReturn(true);
 
         $command = new RepoMergeCommand($this->mock);

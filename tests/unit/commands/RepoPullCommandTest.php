@@ -8,7 +8,6 @@ class RepoPullCommandTest extends TestCase {
 
     public function setUp()
     {
-        $this->markTestSkipped('Test skipped. Not implimented yet');
         $this->mock = Mockery::mock('Isimmons\Sgd\Git');
     }
 
