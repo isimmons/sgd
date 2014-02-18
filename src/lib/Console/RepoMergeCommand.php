@@ -37,8 +37,8 @@ class RepoMergeCommand extends BaseCommand {
     */
     protected function configure()
     {
-        $this->setName('repo:push')
-            ->setDescription('Push files to existing github branch.')
+        $this->setName('repo:merge')
+            ->setDescription('Merge local repo and remote')
             ->addArgument('repo', InputArgument::REQUIRED, 'Path to target local repository (Required)')
             ->addArgument('remote', InputArgument::REQUIRED, 'Remote repository')
             ->addArgument('commit', InputArgument::OPTIONAL, 'Commit merge automatically?', 'false');
