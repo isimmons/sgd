@@ -23,8 +23,6 @@ git pull origin master
 ```
 And then check the status to make sure everything is ok before continuing to use sgd.
 
-If you have already made commits to the local repository and forgot to pull from the remote first, you will need to do a manual pull and merge before continuing to use sgd.
-
 I will be adding basic fetch pull and merge commands very soon.
 
 Feel free to tinker around, test, and even contribute if you wish.
