@@ -4,6 +4,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Command\Command as SymfonyCommand;
+use Isimmons\Sgd\Exceptions\ConfigFileException;
 
 abstract class BaseCommand extends SymfonyCommand {
 
@@ -30,7 +31,13 @@ abstract class BaseCommand extends SymfonyCommand {
      */
     public function argument($key)
     {
-        return $this->input->getArgument($key);
+        if( ! $this->getConfig($key))
+        {
+            return $this->ask("Enter the path where you would like this new repository.");
+        }
+
+        return $this->getConfig($key);
+
     }
 
     /**
@@ -68,6 +75,17 @@ abstract class BaseCommand extends SymfonyCommand {
         $question = '<comment>'.$question.'</comment> ';
 
         return $this->getHelperSet()->get('dialog')->askHiddenResponse($this->output, $question, false);
+    }
+
+    protected function getConfig($key)
+    {
+        if( ! $json = file_get_contents('./sgd.json')) return false;
+
+        if( ! $config = json_decode($json, true)) throw new ConfigFileException('Something is wrong with your config file.');
+
+        if(isset($config[$key])) return $config[$key];
+
+        return false;
     }
 
 }
