@@ -89,7 +89,10 @@ class GitRunner {
 
         $status = trim(proc_close($resource));
         
-        if ($status && $stderr != '') throw new GitCommandException($stderr);
+        if ($status){
+            if($stderr != '') throw new GitCommandException($stderr);
+        }
+
 
         return $stdout;
     }
