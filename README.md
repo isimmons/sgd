@@ -31,7 +31,7 @@ Feel free to tinker around, test, and even contribute if you wish.
 * More commands (fetch, merge in the works)
 * Work on making commands easier and more intuitive
 * Fix some incorrect docblocks
-* Plan to implement some type of config file to avoid repo as a required argument to every command
+* ~~Plan to implement some type of config file to avoid repo as a required argument to every command~~
 
 ## Why use it?
 You could initialize a git repository inside the sculpin build directory but there is a risk of it being overwritten and you would still have to cd back and forth between the sculpin root and the build directory when switching between editing or building your site and running git commands to push changes.
