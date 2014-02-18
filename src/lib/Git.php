@@ -96,7 +96,7 @@ class Git {
 
         $git = $this->runner;
 
-        if($result = $git->run($repo, $command)) return $result;
+        if($result = $git->run($repo, $command) != "") return $result;
 
         return false;
     }
@@ -104,6 +104,39 @@ class Git {
     public function remote($repo, $action = 'add', $remote = 'origin', $url)
     {
         $command = "remote {$action} {$remote} {$url}";
+
+        $git = $this->runner;
+
+        if($result = $git->run($repo, $command) == "") return true;
+
+        return false;
+    }
+
+    public function fetch($repo, $remote)
+    {
+        $command = "fetch {$remote}";
+
+        $git = $this->runner;
+
+        if($result = $git->run($repo, $command) == "") return true;
+
+        return false;
+    }
+
+    public function pull($repo, $remote)
+    {
+        $command = "pull {$remote}";
+
+        $git = $this->runner;
+
+        if($result = $git->run($repo, $command) == "") return true;
+
+        return false;
+    }
+
+    public function merge($repo, $remote, $commit = false)
+    {
+        $command = "merge {$remote}" . $commit = true ? '--commit' : '';
 
         $git = $this->runner;
 
