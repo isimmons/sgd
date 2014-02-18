@@ -39,7 +39,6 @@ class RepoMergeCommand extends BaseCommand {
     {
         $this->setName('repo:merge')
             ->setDescription('Merge local repo and remote')
-            ->addArgument('repo', InputArgument::REQUIRED, 'Path to target local repository (Required)')
             ->addArgument('remote', InputArgument::REQUIRED, 'Remote repository')
             ->addArgument('commit', InputArgument::OPTIONAL, 'Commit merge automatically?', 'false');
     }
@@ -55,7 +54,9 @@ class RepoMergeCommand extends BaseCommand {
         $remote = $this->getRemote();
         $commit = $this->getCommit();
 
-        if($this->git->merge($repo, $remote, $commit))
+        $result = $this->git->merge($repo, $remote, $commit); 
+        
+        if($result)
             $this->displayOutput("merge {$repo} -->>{}<<-- {$remote} Success.");
     }
 

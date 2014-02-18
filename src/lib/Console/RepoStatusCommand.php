@@ -37,8 +37,7 @@ class RepoStatusCommand extends BaseCommand {
     protected function configure()
     {        
         $this->setName('repo:status')
-            ->setDescription('Runs git status on given repo.')
-            ->addArgument('repo', InputArgument::REQUIRED, 'Path to target repository (Required)');
+            ->setDescription('Runs git status on given repo.');
     }
 
     /**
@@ -50,7 +49,9 @@ class RepoStatusCommand extends BaseCommand {
     {
         $repo = $this->getRepo();
 
-        if($result = $this->git->status($repo))
+        $result = $this->git->status($repo);
+
+        if($result)
         {
             $this->displayOutPut($result);
         }

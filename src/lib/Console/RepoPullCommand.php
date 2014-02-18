@@ -39,7 +39,6 @@ class RepoPullCommand extends BaseCommand {
     {
         $this->setName('repo:pull')
             ->setDescription('Pull from remote.')
-            ->addArgument('repo', InputArgument::REQUIRED, 'Path to target local repository (Required)')
             ->addArgument('remote', InputArgument::REQUIRED, 'Remote repository')
             ->addArgument('branch', InputArgument::REQUIRED, 'Remote branch');
     }
@@ -55,7 +54,9 @@ class RepoPullCommand extends BaseCommand {
         $remote = $this->getRemote();
         $branch = $this->getBranch();
 
-        if($this->git->pull($repo, $remote, $branch))
+        $result = $this->git->pull($repo, $remote, $branch);
+
+        if($result)
             $this->displayOutput("pull {$repo} <<-- {$remote} {$branch} Success.");
     }
 

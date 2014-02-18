@@ -37,8 +37,7 @@ class RepoMakeCommand extends BaseCommand {
     protected function configure()
     {        
         $this->setName('repo:make')
-            ->setDescription('Creates a repository at the given path.')
-            ->addArgument('repo', InputArgument::REQUIRED, 'Path to target repository (Required)');
+            ->setDescription('Creates a repository.');
     }
 
     /**

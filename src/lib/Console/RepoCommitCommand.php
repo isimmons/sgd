@@ -38,7 +38,6 @@ class RepoCommitCommand extends BaseCommand {
     {
         $this->setName('repo:commit')
             ->setDescription('Commit staged files.')
-            ->addArgument('repo', InputArgument::REQUIRED, 'Path to target repository (Required)')
             ->addArgument('message', InputArgument::OPTIONAL, 'Commit message', 'New Post');
     }
 
@@ -49,8 +48,12 @@ class RepoCommitCommand extends BaseCommand {
     */
     protected function fire()
     {
+        $repo = $this->getRepo();
+        $message = $this->getMessage();
         
-        if($this->git->commit($this->getRepo(), $this->getMessage()))
+        $result = $this->git->commit($repo, $message);
+
+        if($result)
             $this->displayOutput('Files successfully commited. Ready to push.');
     }
 

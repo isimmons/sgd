@@ -39,7 +39,6 @@ class RepoPushCommand extends BaseCommand {
     {
         $this->setName('repo:push')
             ->setDescription('Push files to existing github branch.')
-            ->addArgument('repo', InputArgument::REQUIRED, 'Path to target local repository (Required)')
             ->addArgument('remote', InputArgument::OPTIONAL, 'Remote repository', 'origin')
             ->addArgument('branch', InputArgument::OPTIONAL, 'Local branch to push', 'master');
     }
@@ -51,7 +50,13 @@ class RepoPushCommand extends BaseCommand {
     */
     protected function fire()
     {
-        if($this->git->push($this->getRepo(), $this->getRemote(), $this->getBranch()))
+        $repo = $this->getRepo();
+        $remote = $this->getRemote();
+        $branch = $this->getBranch();
+
+        $result = $this->git->push($repo, $remote, $branch);
+
+        if($result)
             $this->displayOutput('Files successfully pushed to remote repository.');
     }
 

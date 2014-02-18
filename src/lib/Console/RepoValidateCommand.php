@@ -37,8 +37,7 @@ class RepoValidateCommand extends BaseCommand {
     protected function configure()
     {        
         $this->setName('repo:validate')
-            ->setDescription('Check if directory is a valid git repository.')
-            ->addArgument('repo', InputArgument::REQUIRED, 'Path to target repository (Required)');
+            ->setDescription('Check if directory is a valid git repository.');
     }
 
     /**
@@ -50,7 +49,9 @@ class RepoValidateCommand extends BaseCommand {
     {
         $repo = $this->getRepo();
 
-        if($this->git->validate($repo))
+        $result = $this->git->validate($repo); 
+
+        if($result)
         {
             $this->displayOutput("{$repo} is a valid repository.");
         }

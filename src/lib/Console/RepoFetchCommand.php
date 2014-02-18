@@ -39,7 +39,6 @@ class RepoFetchCommand extends BaseCommand {
     {
         $this->setName('repo:fetch')
             ->setDescription('Fetch from remote.')
-            ->addArgument('repo', InputArgument::REQUIRED, 'Path to target local repository (Required)')
             ->addArgument('remote', InputArgument::REQUIRED, 'Remote repository');
     }
 
@@ -53,7 +52,9 @@ class RepoFetchCommand extends BaseCommand {
         $repo = $this->getRepo();
         $remote = $this->getRemote();
 
-        if($this->git->fetch($repo, $remote))
+        $result = $this->git->fetch($repo, $remote); 
+
+        if($result)
             $this->displayOutput("{$repo} <<-- {$remote} Success.");
     }
 

@@ -38,7 +38,6 @@ class RepoAddCommand extends BaseCommand {
     {        
         $this->setName('repo:add')
             ->setDescription('Add files to existing git repo.')
-            ->addArgument('repo', InputArgument::REQUIRED, 'Path to target repository (Required)')
             ->addArgument('file', InputArgument::OPTIONAL, 'Add individual file', '.')
             ->addOption('files', null, InputOption::VALUE_OPTIONAL, 'Add multiple files. Defaults to "."', '.');
     }
@@ -50,7 +49,12 @@ class RepoAddCommand extends BaseCommand {
     */
     protected function fire()
     {
-        if($this->git->add($this->getRepo(), $this->getFile()))
+        $repo = $this->getRepo();
+        $file = $this->getFile();
+
+        $result = $this->git->add($repo, $file);
+
+        if($result)
             $this->displayOutput('Files successfully added. Ready for commit.');
     }
 
