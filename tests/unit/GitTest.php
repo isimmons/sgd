@@ -126,7 +126,7 @@ class GitTest extends TestCase {
 
         $git = new Git($this->mock);
         $result = $git->remote('repo', 'add', 'origin', 'git@github.com:isimmons/foo.git');
-
+        
         $this->assertTrue($result);
     }
 
