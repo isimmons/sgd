@@ -3,7 +3,6 @@
 
 require __DIR__.'/../src/vendor/autoload.php';
 require __DIR__.'/../src/lib/helpers.php';
-require __DIR__.'/../src/lib/helpers.php';
 
 $app = new Symfony\Component\Console\Application('sgd', '0.0.2');
 
