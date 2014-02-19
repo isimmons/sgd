@@ -18,14 +18,15 @@ $app->add(new Isimmons\Sgd\Console\RepoValidateCommand($git));
 $app->add(new Isimmons\Sgd\Console\RepoMakeCommand($git));
 $app->add(new Isimmons\Sgd\Console\RepoStatusCommand($git));
 $app->add(new Isimmons\Sgd\Console\RepoRemoteCommand($git));
-//$app->add(new Isimmons\Sgd\Console\RepoFetchCommand($git));
+$app->add(new Isimmons\Sgd\Console\RepoFetchCommand($git));
 $app->add(new Isimmons\Sgd\Console\RepoPullCommand($git));
-//$app->add(new Isimmons\Sgd\Console\RepoMergeCommand($git));
+$app->add(new Isimmons\Sgd\Console\RepoMergeCommand($git));
 $app->add(new Isimmons\Sgd\Console\SculpinCopyCommand($copier));
 
 $updateCommand = new KevinGH\Amend\Command('self-update');
 $updateCommand->setManifestUri('https://github.com/isimmons/sgd/raw/master/sgd-manifest.json');
 $app->getHelperSet()->set(new KevinGH\Amend\Helper);
+
 $app->add($updateCommand);
 
 $app->run();
